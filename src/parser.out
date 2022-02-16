@@ -1,0 +1,3222 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    NEWLINE
+
+Grammar
+
+Rule 0     S' -> stmt_list_opt
+Rule 1     while_stmt -> WHILE expr stmt_list END
+Rule 2     stmt_list -> stmt
+Rule 3     stmt_list -> stmt_list stmt
+Rule 4     stmt -> expr_stmt
+Rule 5     stmt -> if_stmt
+Rule 6     stmt -> while_stmt
+Rule 7     stmt -> BREAK
+Rule 8     stmt -> CONTINUE
+Rule 9     stmt -> function_stmt
+Rule 10    expr_stmt -> expr SEMI
+Rule 11    function_stmt -> FUNCTION ID EQ function_declr stmt_list END
+Rule 12    function_declr -> ID LPAREN args_opt RPAREN
+Rule 13    args_opt -> <empty>
+Rule 14    args_opt -> args
+Rule 15    args -> ID
+Rule 16    args -> args COMMA ID
+Rule 17    stmt_list_opt -> <empty>
+Rule 18    stmt_list_opt -> stmt_list
+Rule 19    expr -> LPAREN expr RPAREN
+Rule 20    expr -> function_call
+Rule 21    expr -> ID
+Rule 22    expr -> NUMBER
+Rule 23    expr -> STRING
+Rule 24    expr -> expr1
+Rule 25    expr -> expr2
+Rule 26    function_call -> ID LPAREN expr_list_opt RPAREN
+Rule 27    expr_list_opt -> <empty>
+Rule 28    expr_list_opt -> expr_list
+Rule 29    expr_list -> expr
+Rule 30    expr_list -> expr_list COMMA expr
+Rule 31    expr1 -> NEG expr
+Rule 32    expr2 -> expr LT expr
+Rule 33    expr2 -> expr AND expr
+Rule 34    expr2 -> expr DIV expr
+Rule 35    expr2 -> expr POW expr
+Rule 36    expr2 -> expr GE expr
+Rule 37    expr2 -> expr GT expr
+Rule 38    expr2 -> expr LE expr
+Rule 39    expr2 -> expr MINUS expr
+Rule 40    expr2 -> expr MUL expr
+Rule 41    expr2 -> expr OR expr
+Rule 42    expr2 -> expr PLUS expr
+Rule 43    expr2 -> expr EQ expr
+Rule 44    expr2 -> expr EQEQ expr
+Rule 45    if_stmt -> IF expr stmt_list_opt elseif_stmt END
+Rule 46    elseif_stmt -> <empty>
+Rule 47    elseif_stmt -> ELSE stmt_list_opt
+Rule 48    elseif_stmt -> ELSEIF expr stmt_list_opt elseif_stmt
+
+Terminals, with rules where they appear
+
+AND                  : 33
+BREAK                : 7
+COMMA                : 16 30
+CONTINUE             : 8
+DIV                  : 34
+ELSE                 : 47
+ELSEIF               : 48
+END                  : 1 11 45
+EQ                   : 11 43
+EQEQ                 : 44
+FUNCTION             : 11
+GE                   : 36
+GT                   : 37
+ID                   : 11 12 15 16 21 26
+IF                   : 45
+LE                   : 38
+LPAREN               : 12 19 26
+LT                   : 32
+MINUS                : 39
+MUL                  : 40
+NEG                  : 31
+NEWLINE              : 
+NUMBER               : 22
+OR                   : 41
+PLUS                 : 42
+POW                  : 35
+RPAREN               : 12 19 26
+SEMI                 : 10
+STRING               : 23
+WHILE                : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+args                 : 14 16
+args_opt             : 12
+elseif_stmt          : 45 48
+expr                 : 1 10 19 29 30 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 42 43 43 44 44 45 48
+expr1                : 24
+expr2                : 25
+expr_list            : 28 30
+expr_list_opt        : 26
+expr_stmt            : 4
+function_call        : 20
+function_declr       : 11
+function_stmt        : 9
+if_stmt              : 5
+stmt                 : 2 3
+stmt_list            : 1 3 11 18
+stmt_list_opt        : 45 47 48 0
+while_stmt           : 6
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . stmt_list_opt
+    (17) stmt_list_opt -> .
+    (18) stmt_list_opt -> . stmt_list
+    (2) stmt_list -> . stmt
+    (3) stmt_list -> . stmt_list stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    $end            reduce using rule 17 (stmt_list_opt -> .)
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    stmt_list_opt                  shift and go to state 1
+    stmt_list                      shift and go to state 2
+    stmt                           shift and go to state 3
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    expr                           shift and go to state 10
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 1
+
+    (0) S' -> stmt_list_opt .
+
+
+
+state 2
+
+    (18) stmt_list_opt -> stmt_list .
+    (3) stmt_list -> stmt_list . stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    $end            reduce using rule 18 (stmt_list_opt -> stmt_list .)
+    ELSE            reduce using rule 18 (stmt_list_opt -> stmt_list .)
+    ELSEIF          reduce using rule 18 (stmt_list_opt -> stmt_list .)
+    END             reduce using rule 18 (stmt_list_opt -> stmt_list .)
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    stmt                           shift and go to state 22
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    expr                           shift and go to state 10
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 3
+
+    (2) stmt_list -> stmt .
+
+    BREAK           reduce using rule 2 (stmt_list -> stmt .)
+    CONTINUE        reduce using rule 2 (stmt_list -> stmt .)
+    IF              reduce using rule 2 (stmt_list -> stmt .)
+    WHILE           reduce using rule 2 (stmt_list -> stmt .)
+    FUNCTION        reduce using rule 2 (stmt_list -> stmt .)
+    LPAREN          reduce using rule 2 (stmt_list -> stmt .)
+    ID              reduce using rule 2 (stmt_list -> stmt .)
+    NUMBER          reduce using rule 2 (stmt_list -> stmt .)
+    STRING          reduce using rule 2 (stmt_list -> stmt .)
+    NEG             reduce using rule 2 (stmt_list -> stmt .)
+    $end            reduce using rule 2 (stmt_list -> stmt .)
+    ELSE            reduce using rule 2 (stmt_list -> stmt .)
+    ELSEIF          reduce using rule 2 (stmt_list -> stmt .)
+    END             reduce using rule 2 (stmt_list -> stmt .)
+
+
+state 4
+
+    (4) stmt -> expr_stmt .
+
+    BREAK           reduce using rule 4 (stmt -> expr_stmt .)
+    CONTINUE        reduce using rule 4 (stmt -> expr_stmt .)
+    IF              reduce using rule 4 (stmt -> expr_stmt .)
+    WHILE           reduce using rule 4 (stmt -> expr_stmt .)
+    FUNCTION        reduce using rule 4 (stmt -> expr_stmt .)
+    LPAREN          reduce using rule 4 (stmt -> expr_stmt .)
+    ID              reduce using rule 4 (stmt -> expr_stmt .)
+    NUMBER          reduce using rule 4 (stmt -> expr_stmt .)
+    STRING          reduce using rule 4 (stmt -> expr_stmt .)
+    NEG             reduce using rule 4 (stmt -> expr_stmt .)
+    $end            reduce using rule 4 (stmt -> expr_stmt .)
+    ELSE            reduce using rule 4 (stmt -> expr_stmt .)
+    ELSEIF          reduce using rule 4 (stmt -> expr_stmt .)
+    END             reduce using rule 4 (stmt -> expr_stmt .)
+
+
+state 5
+
+    (5) stmt -> if_stmt .
+
+    BREAK           reduce using rule 5 (stmt -> if_stmt .)
+    CONTINUE        reduce using rule 5 (stmt -> if_stmt .)
+    IF              reduce using rule 5 (stmt -> if_stmt .)
+    WHILE           reduce using rule 5 (stmt -> if_stmt .)
+    FUNCTION        reduce using rule 5 (stmt -> if_stmt .)
+    LPAREN          reduce using rule 5 (stmt -> if_stmt .)
+    ID              reduce using rule 5 (stmt -> if_stmt .)
+    NUMBER          reduce using rule 5 (stmt -> if_stmt .)
+    STRING          reduce using rule 5 (stmt -> if_stmt .)
+    NEG             reduce using rule 5 (stmt -> if_stmt .)
+    $end            reduce using rule 5 (stmt -> if_stmt .)
+    ELSE            reduce using rule 5 (stmt -> if_stmt .)
+    ELSEIF          reduce using rule 5 (stmt -> if_stmt .)
+    END             reduce using rule 5 (stmt -> if_stmt .)
+
+
+state 6
+
+    (6) stmt -> while_stmt .
+
+    BREAK           reduce using rule 6 (stmt -> while_stmt .)
+    CONTINUE        reduce using rule 6 (stmt -> while_stmt .)
+    IF              reduce using rule 6 (stmt -> while_stmt .)
+    WHILE           reduce using rule 6 (stmt -> while_stmt .)
+    FUNCTION        reduce using rule 6 (stmt -> while_stmt .)
+    LPAREN          reduce using rule 6 (stmt -> while_stmt .)
+    ID              reduce using rule 6 (stmt -> while_stmt .)
+    NUMBER          reduce using rule 6 (stmt -> while_stmt .)
+    STRING          reduce using rule 6 (stmt -> while_stmt .)
+    NEG             reduce using rule 6 (stmt -> while_stmt .)
+    $end            reduce using rule 6 (stmt -> while_stmt .)
+    ELSE            reduce using rule 6 (stmt -> while_stmt .)
+    ELSEIF          reduce using rule 6 (stmt -> while_stmt .)
+    END             reduce using rule 6 (stmt -> while_stmt .)
+
+
+state 7
+
+    (7) stmt -> BREAK .
+
+    BREAK           reduce using rule 7 (stmt -> BREAK .)
+    CONTINUE        reduce using rule 7 (stmt -> BREAK .)
+    IF              reduce using rule 7 (stmt -> BREAK .)
+    WHILE           reduce using rule 7 (stmt -> BREAK .)
+    FUNCTION        reduce using rule 7 (stmt -> BREAK .)
+    LPAREN          reduce using rule 7 (stmt -> BREAK .)
+    ID              reduce using rule 7 (stmt -> BREAK .)
+    NUMBER          reduce using rule 7 (stmt -> BREAK .)
+    STRING          reduce using rule 7 (stmt -> BREAK .)
+    NEG             reduce using rule 7 (stmt -> BREAK .)
+    $end            reduce using rule 7 (stmt -> BREAK .)
+    ELSE            reduce using rule 7 (stmt -> BREAK .)
+    ELSEIF          reduce using rule 7 (stmt -> BREAK .)
+    END             reduce using rule 7 (stmt -> BREAK .)
+
+
+state 8
+
+    (8) stmt -> CONTINUE .
+
+    BREAK           reduce using rule 8 (stmt -> CONTINUE .)
+    CONTINUE        reduce using rule 8 (stmt -> CONTINUE .)
+    IF              reduce using rule 8 (stmt -> CONTINUE .)
+    WHILE           reduce using rule 8 (stmt -> CONTINUE .)
+    FUNCTION        reduce using rule 8 (stmt -> CONTINUE .)
+    LPAREN          reduce using rule 8 (stmt -> CONTINUE .)
+    ID              reduce using rule 8 (stmt -> CONTINUE .)
+    NUMBER          reduce using rule 8 (stmt -> CONTINUE .)
+    STRING          reduce using rule 8 (stmt -> CONTINUE .)
+    NEG             reduce using rule 8 (stmt -> CONTINUE .)
+    $end            reduce using rule 8 (stmt -> CONTINUE .)
+    ELSE            reduce using rule 8 (stmt -> CONTINUE .)
+    ELSEIF          reduce using rule 8 (stmt -> CONTINUE .)
+    END             reduce using rule 8 (stmt -> CONTINUE .)
+
+
+state 9
+
+    (9) stmt -> function_stmt .
+
+    BREAK           reduce using rule 9 (stmt -> function_stmt .)
+    CONTINUE        reduce using rule 9 (stmt -> function_stmt .)
+    IF              reduce using rule 9 (stmt -> function_stmt .)
+    WHILE           reduce using rule 9 (stmt -> function_stmt .)
+    FUNCTION        reduce using rule 9 (stmt -> function_stmt .)
+    LPAREN          reduce using rule 9 (stmt -> function_stmt .)
+    ID              reduce using rule 9 (stmt -> function_stmt .)
+    NUMBER          reduce using rule 9 (stmt -> function_stmt .)
+    STRING          reduce using rule 9 (stmt -> function_stmt .)
+    NEG             reduce using rule 9 (stmt -> function_stmt .)
+    $end            reduce using rule 9 (stmt -> function_stmt .)
+    ELSE            reduce using rule 9 (stmt -> function_stmt .)
+    ELSEIF          reduce using rule 9 (stmt -> function_stmt .)
+    END             reduce using rule 9 (stmt -> function_stmt .)
+
+
+state 10
+
+    (10) expr_stmt -> expr . SEMI
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            shift and go to state 23
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+
+
+state 11
+
+    (45) if_stmt -> IF . expr stmt_list_opt elseif_stmt END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 37
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 12
+
+    (1) while_stmt -> WHILE . expr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 38
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 13
+
+    (11) function_stmt -> FUNCTION . ID EQ function_declr stmt_list END
+
+    ID              shift and go to state 39
+
+
+state 14
+
+    (21) expr -> ID .
+    (26) function_call -> ID . LPAREN expr_list_opt RPAREN
+
+  ! shift/reduce conflict for LPAREN resolved as shift
+    SEMI            reduce using rule 21 (expr -> ID .)
+    LT              reduce using rule 21 (expr -> ID .)
+    AND             reduce using rule 21 (expr -> ID .)
+    DIV             reduce using rule 21 (expr -> ID .)
+    POW             reduce using rule 21 (expr -> ID .)
+    GE              reduce using rule 21 (expr -> ID .)
+    GT              reduce using rule 21 (expr -> ID .)
+    LE              reduce using rule 21 (expr -> ID .)
+    MINUS           reduce using rule 21 (expr -> ID .)
+    MUL             reduce using rule 21 (expr -> ID .)
+    OR              reduce using rule 21 (expr -> ID .)
+    PLUS            reduce using rule 21 (expr -> ID .)
+    EQ              reduce using rule 21 (expr -> ID .)
+    EQEQ            reduce using rule 21 (expr -> ID .)
+    BREAK           reduce using rule 21 (expr -> ID .)
+    CONTINUE        reduce using rule 21 (expr -> ID .)
+    IF              reduce using rule 21 (expr -> ID .)
+    WHILE           reduce using rule 21 (expr -> ID .)
+    FUNCTION        reduce using rule 21 (expr -> ID .)
+    ID              reduce using rule 21 (expr -> ID .)
+    NUMBER          reduce using rule 21 (expr -> ID .)
+    STRING          reduce using rule 21 (expr -> ID .)
+    NEG             reduce using rule 21 (expr -> ID .)
+    ELSE            reduce using rule 21 (expr -> ID .)
+    ELSEIF          reduce using rule 21 (expr -> ID .)
+    END             reduce using rule 21 (expr -> ID .)
+    RPAREN          reduce using rule 21 (expr -> ID .)
+    COMMA           reduce using rule 21 (expr -> ID .)
+    LPAREN          shift and go to state 40
+
+  ! LPAREN          [ reduce using rule 21 (expr -> ID .) ]
+
+
+state 15
+
+    (19) expr -> LPAREN . expr RPAREN
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 41
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 16
+
+    (20) expr -> function_call .
+
+    SEMI            reduce using rule 20 (expr -> function_call .)
+    LT              reduce using rule 20 (expr -> function_call .)
+    AND             reduce using rule 20 (expr -> function_call .)
+    DIV             reduce using rule 20 (expr -> function_call .)
+    POW             reduce using rule 20 (expr -> function_call .)
+    GE              reduce using rule 20 (expr -> function_call .)
+    GT              reduce using rule 20 (expr -> function_call .)
+    LE              reduce using rule 20 (expr -> function_call .)
+    MINUS           reduce using rule 20 (expr -> function_call .)
+    MUL             reduce using rule 20 (expr -> function_call .)
+    OR              reduce using rule 20 (expr -> function_call .)
+    PLUS            reduce using rule 20 (expr -> function_call .)
+    EQ              reduce using rule 20 (expr -> function_call .)
+    EQEQ            reduce using rule 20 (expr -> function_call .)
+    BREAK           reduce using rule 20 (expr -> function_call .)
+    CONTINUE        reduce using rule 20 (expr -> function_call .)
+    IF              reduce using rule 20 (expr -> function_call .)
+    WHILE           reduce using rule 20 (expr -> function_call .)
+    FUNCTION        reduce using rule 20 (expr -> function_call .)
+    LPAREN          reduce using rule 20 (expr -> function_call .)
+    ID              reduce using rule 20 (expr -> function_call .)
+    NUMBER          reduce using rule 20 (expr -> function_call .)
+    STRING          reduce using rule 20 (expr -> function_call .)
+    NEG             reduce using rule 20 (expr -> function_call .)
+    ELSE            reduce using rule 20 (expr -> function_call .)
+    ELSEIF          reduce using rule 20 (expr -> function_call .)
+    END             reduce using rule 20 (expr -> function_call .)
+    RPAREN          reduce using rule 20 (expr -> function_call .)
+    COMMA           reduce using rule 20 (expr -> function_call .)
+
+
+state 17
+
+    (22) expr -> NUMBER .
+
+    SEMI            reduce using rule 22 (expr -> NUMBER .)
+    LT              reduce using rule 22 (expr -> NUMBER .)
+    AND             reduce using rule 22 (expr -> NUMBER .)
+    DIV             reduce using rule 22 (expr -> NUMBER .)
+    POW             reduce using rule 22 (expr -> NUMBER .)
+    GE              reduce using rule 22 (expr -> NUMBER .)
+    GT              reduce using rule 22 (expr -> NUMBER .)
+    LE              reduce using rule 22 (expr -> NUMBER .)
+    MINUS           reduce using rule 22 (expr -> NUMBER .)
+    MUL             reduce using rule 22 (expr -> NUMBER .)
+    OR              reduce using rule 22 (expr -> NUMBER .)
+    PLUS            reduce using rule 22 (expr -> NUMBER .)
+    EQ              reduce using rule 22 (expr -> NUMBER .)
+    EQEQ            reduce using rule 22 (expr -> NUMBER .)
+    BREAK           reduce using rule 22 (expr -> NUMBER .)
+    CONTINUE        reduce using rule 22 (expr -> NUMBER .)
+    IF              reduce using rule 22 (expr -> NUMBER .)
+    WHILE           reduce using rule 22 (expr -> NUMBER .)
+    FUNCTION        reduce using rule 22 (expr -> NUMBER .)
+    LPAREN          reduce using rule 22 (expr -> NUMBER .)
+    ID              reduce using rule 22 (expr -> NUMBER .)
+    NUMBER          reduce using rule 22 (expr -> NUMBER .)
+    STRING          reduce using rule 22 (expr -> NUMBER .)
+    NEG             reduce using rule 22 (expr -> NUMBER .)
+    ELSE            reduce using rule 22 (expr -> NUMBER .)
+    ELSEIF          reduce using rule 22 (expr -> NUMBER .)
+    END             reduce using rule 22 (expr -> NUMBER .)
+    RPAREN          reduce using rule 22 (expr -> NUMBER .)
+    COMMA           reduce using rule 22 (expr -> NUMBER .)
+
+
+state 18
+
+    (23) expr -> STRING .
+
+    SEMI            reduce using rule 23 (expr -> STRING .)
+    LT              reduce using rule 23 (expr -> STRING .)
+    AND             reduce using rule 23 (expr -> STRING .)
+    DIV             reduce using rule 23 (expr -> STRING .)
+    POW             reduce using rule 23 (expr -> STRING .)
+    GE              reduce using rule 23 (expr -> STRING .)
+    GT              reduce using rule 23 (expr -> STRING .)
+    LE              reduce using rule 23 (expr -> STRING .)
+    MINUS           reduce using rule 23 (expr -> STRING .)
+    MUL             reduce using rule 23 (expr -> STRING .)
+    OR              reduce using rule 23 (expr -> STRING .)
+    PLUS            reduce using rule 23 (expr -> STRING .)
+    EQ              reduce using rule 23 (expr -> STRING .)
+    EQEQ            reduce using rule 23 (expr -> STRING .)
+    BREAK           reduce using rule 23 (expr -> STRING .)
+    CONTINUE        reduce using rule 23 (expr -> STRING .)
+    IF              reduce using rule 23 (expr -> STRING .)
+    WHILE           reduce using rule 23 (expr -> STRING .)
+    FUNCTION        reduce using rule 23 (expr -> STRING .)
+    LPAREN          reduce using rule 23 (expr -> STRING .)
+    ID              reduce using rule 23 (expr -> STRING .)
+    NUMBER          reduce using rule 23 (expr -> STRING .)
+    STRING          reduce using rule 23 (expr -> STRING .)
+    NEG             reduce using rule 23 (expr -> STRING .)
+    ELSE            reduce using rule 23 (expr -> STRING .)
+    ELSEIF          reduce using rule 23 (expr -> STRING .)
+    END             reduce using rule 23 (expr -> STRING .)
+    RPAREN          reduce using rule 23 (expr -> STRING .)
+    COMMA           reduce using rule 23 (expr -> STRING .)
+
+
+state 19
+
+    (24) expr -> expr1 .
+
+    SEMI            reduce using rule 24 (expr -> expr1 .)
+    LT              reduce using rule 24 (expr -> expr1 .)
+    AND             reduce using rule 24 (expr -> expr1 .)
+    DIV             reduce using rule 24 (expr -> expr1 .)
+    POW             reduce using rule 24 (expr -> expr1 .)
+    GE              reduce using rule 24 (expr -> expr1 .)
+    GT              reduce using rule 24 (expr -> expr1 .)
+    LE              reduce using rule 24 (expr -> expr1 .)
+    MINUS           reduce using rule 24 (expr -> expr1 .)
+    MUL             reduce using rule 24 (expr -> expr1 .)
+    OR              reduce using rule 24 (expr -> expr1 .)
+    PLUS            reduce using rule 24 (expr -> expr1 .)
+    EQ              reduce using rule 24 (expr -> expr1 .)
+    EQEQ            reduce using rule 24 (expr -> expr1 .)
+    BREAK           reduce using rule 24 (expr -> expr1 .)
+    CONTINUE        reduce using rule 24 (expr -> expr1 .)
+    IF              reduce using rule 24 (expr -> expr1 .)
+    WHILE           reduce using rule 24 (expr -> expr1 .)
+    FUNCTION        reduce using rule 24 (expr -> expr1 .)
+    LPAREN          reduce using rule 24 (expr -> expr1 .)
+    ID              reduce using rule 24 (expr -> expr1 .)
+    NUMBER          reduce using rule 24 (expr -> expr1 .)
+    STRING          reduce using rule 24 (expr -> expr1 .)
+    NEG             reduce using rule 24 (expr -> expr1 .)
+    ELSE            reduce using rule 24 (expr -> expr1 .)
+    ELSEIF          reduce using rule 24 (expr -> expr1 .)
+    END             reduce using rule 24 (expr -> expr1 .)
+    RPAREN          reduce using rule 24 (expr -> expr1 .)
+    COMMA           reduce using rule 24 (expr -> expr1 .)
+
+
+state 20
+
+    (25) expr -> expr2 .
+
+    SEMI            reduce using rule 25 (expr -> expr2 .)
+    LT              reduce using rule 25 (expr -> expr2 .)
+    AND             reduce using rule 25 (expr -> expr2 .)
+    DIV             reduce using rule 25 (expr -> expr2 .)
+    POW             reduce using rule 25 (expr -> expr2 .)
+    GE              reduce using rule 25 (expr -> expr2 .)
+    GT              reduce using rule 25 (expr -> expr2 .)
+    LE              reduce using rule 25 (expr -> expr2 .)
+    MINUS           reduce using rule 25 (expr -> expr2 .)
+    MUL             reduce using rule 25 (expr -> expr2 .)
+    OR              reduce using rule 25 (expr -> expr2 .)
+    PLUS            reduce using rule 25 (expr -> expr2 .)
+    EQ              reduce using rule 25 (expr -> expr2 .)
+    EQEQ            reduce using rule 25 (expr -> expr2 .)
+    BREAK           reduce using rule 25 (expr -> expr2 .)
+    CONTINUE        reduce using rule 25 (expr -> expr2 .)
+    IF              reduce using rule 25 (expr -> expr2 .)
+    WHILE           reduce using rule 25 (expr -> expr2 .)
+    FUNCTION        reduce using rule 25 (expr -> expr2 .)
+    LPAREN          reduce using rule 25 (expr -> expr2 .)
+    ID              reduce using rule 25 (expr -> expr2 .)
+    NUMBER          reduce using rule 25 (expr -> expr2 .)
+    STRING          reduce using rule 25 (expr -> expr2 .)
+    NEG             reduce using rule 25 (expr -> expr2 .)
+    ELSE            reduce using rule 25 (expr -> expr2 .)
+    ELSEIF          reduce using rule 25 (expr -> expr2 .)
+    END             reduce using rule 25 (expr -> expr2 .)
+    RPAREN          reduce using rule 25 (expr -> expr2 .)
+    COMMA           reduce using rule 25 (expr -> expr2 .)
+
+
+state 21
+
+    (31) expr1 -> NEG . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 42
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 22
+
+    (3) stmt_list -> stmt_list stmt .
+
+    BREAK           reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    CONTINUE        reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    IF              reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    WHILE           reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    FUNCTION        reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    LPAREN          reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    ID              reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    NUMBER          reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    STRING          reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    NEG             reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    $end            reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    ELSE            reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    ELSEIF          reduce using rule 3 (stmt_list -> stmt_list stmt .)
+    END             reduce using rule 3 (stmt_list -> stmt_list stmt .)
+
+
+state 23
+
+    (10) expr_stmt -> expr SEMI .
+
+    BREAK           reduce using rule 10 (expr_stmt -> expr SEMI .)
+    CONTINUE        reduce using rule 10 (expr_stmt -> expr SEMI .)
+    IF              reduce using rule 10 (expr_stmt -> expr SEMI .)
+    WHILE           reduce using rule 10 (expr_stmt -> expr SEMI .)
+    FUNCTION        reduce using rule 10 (expr_stmt -> expr SEMI .)
+    LPAREN          reduce using rule 10 (expr_stmt -> expr SEMI .)
+    ID              reduce using rule 10 (expr_stmt -> expr SEMI .)
+    NUMBER          reduce using rule 10 (expr_stmt -> expr SEMI .)
+    STRING          reduce using rule 10 (expr_stmt -> expr SEMI .)
+    NEG             reduce using rule 10 (expr_stmt -> expr SEMI .)
+    $end            reduce using rule 10 (expr_stmt -> expr SEMI .)
+    ELSE            reduce using rule 10 (expr_stmt -> expr SEMI .)
+    ELSEIF          reduce using rule 10 (expr_stmt -> expr SEMI .)
+    END             reduce using rule 10 (expr_stmt -> expr SEMI .)
+
+
+state 24
+
+    (32) expr2 -> expr LT . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 43
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 25
+
+    (33) expr2 -> expr AND . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 44
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 26
+
+    (34) expr2 -> expr DIV . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 45
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 27
+
+    (35) expr2 -> expr POW . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 46
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 28
+
+    (36) expr2 -> expr GE . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 47
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 29
+
+    (37) expr2 -> expr GT . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 48
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 30
+
+    (38) expr2 -> expr LE . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 49
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 31
+
+    (39) expr2 -> expr MINUS . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 50
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 32
+
+    (40) expr2 -> expr MUL . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 51
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 33
+
+    (41) expr2 -> expr OR . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 52
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 34
+
+    (42) expr2 -> expr PLUS . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 53
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 35
+
+    (43) expr2 -> expr EQ . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 54
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 36
+
+    (44) expr2 -> expr EQEQ . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 55
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 37
+
+    (45) if_stmt -> IF expr . stmt_list_opt elseif_stmt END
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+    (17) stmt_list_opt -> .
+    (18) stmt_list_opt -> . stmt_list
+    (2) stmt_list -> . stmt
+    (3) stmt_list -> . stmt_list stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+    ELSE            reduce using rule 17 (stmt_list_opt -> .)
+    ELSEIF          reduce using rule 17 (stmt_list_opt -> .)
+    END             reduce using rule 17 (stmt_list_opt -> .)
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 10
+    stmt_list_opt                  shift and go to state 56
+    stmt_list                      shift and go to state 2
+    stmt                           shift and go to state 3
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 38
+
+    (1) while_stmt -> WHILE expr . stmt_list END
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+    (2) stmt_list -> . stmt
+    (3) stmt_list -> . stmt_list stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 10
+    stmt_list                      shift and go to state 57
+    stmt                           shift and go to state 3
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 39
+
+    (11) function_stmt -> FUNCTION ID . EQ function_declr stmt_list END
+
+    EQ              shift and go to state 58
+
+
+state 40
+
+    (26) function_call -> ID LPAREN . expr_list_opt RPAREN
+    (27) expr_list_opt -> .
+    (28) expr_list_opt -> . expr_list
+    (29) expr_list -> . expr
+    (30) expr_list -> . expr_list COMMA expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    RPAREN          reduce using rule 27 (expr_list_opt -> .)
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr_list_opt                  shift and go to state 59
+    expr_list                      shift and go to state 60
+    expr                           shift and go to state 61
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 41
+
+    (19) expr -> LPAREN expr . RPAREN
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    RPAREN          shift and go to state 62
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+
+
+state 42
+
+    (31) expr1 -> NEG expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 31 (expr1 -> NEG expr .)
+    LT              reduce using rule 31 (expr1 -> NEG expr .)
+    AND             reduce using rule 31 (expr1 -> NEG expr .)
+    DIV             reduce using rule 31 (expr1 -> NEG expr .)
+    GE              reduce using rule 31 (expr1 -> NEG expr .)
+    GT              reduce using rule 31 (expr1 -> NEG expr .)
+    LE              reduce using rule 31 (expr1 -> NEG expr .)
+    MINUS           reduce using rule 31 (expr1 -> NEG expr .)
+    MUL             reduce using rule 31 (expr1 -> NEG expr .)
+    OR              reduce using rule 31 (expr1 -> NEG expr .)
+    PLUS            reduce using rule 31 (expr1 -> NEG expr .)
+    EQ              reduce using rule 31 (expr1 -> NEG expr .)
+    EQEQ            reduce using rule 31 (expr1 -> NEG expr .)
+    BREAK           reduce using rule 31 (expr1 -> NEG expr .)
+    CONTINUE        reduce using rule 31 (expr1 -> NEG expr .)
+    IF              reduce using rule 31 (expr1 -> NEG expr .)
+    WHILE           reduce using rule 31 (expr1 -> NEG expr .)
+    FUNCTION        reduce using rule 31 (expr1 -> NEG expr .)
+    LPAREN          reduce using rule 31 (expr1 -> NEG expr .)
+    ID              reduce using rule 31 (expr1 -> NEG expr .)
+    NUMBER          reduce using rule 31 (expr1 -> NEG expr .)
+    STRING          reduce using rule 31 (expr1 -> NEG expr .)
+    NEG             reduce using rule 31 (expr1 -> NEG expr .)
+    ELSE            reduce using rule 31 (expr1 -> NEG expr .)
+    ELSEIF          reduce using rule 31 (expr1 -> NEG expr .)
+    END             reduce using rule 31 (expr1 -> NEG expr .)
+    RPAREN          reduce using rule 31 (expr1 -> NEG expr .)
+    COMMA           reduce using rule 31 (expr1 -> NEG expr .)
+    POW             shift and go to state 27
+
+  ! POW             [ reduce using rule 31 (expr1 -> NEG expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! AND             [ shift and go to state 25 ]
+  ! DIV             [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! MUL             [ shift and go to state 32 ]
+  ! OR              [ shift and go to state 33 ]
+  ! PLUS            [ shift and go to state 34 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 43
+
+    (32) expr2 -> expr LT expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 32 (expr2 -> expr LT expr .)
+    LT              reduce using rule 32 (expr2 -> expr LT expr .)
+    GE              reduce using rule 32 (expr2 -> expr LT expr .)
+    GT              reduce using rule 32 (expr2 -> expr LT expr .)
+    LE              reduce using rule 32 (expr2 -> expr LT expr .)
+    MINUS           reduce using rule 32 (expr2 -> expr LT expr .)
+    EQ              reduce using rule 32 (expr2 -> expr LT expr .)
+    EQEQ            reduce using rule 32 (expr2 -> expr LT expr .)
+    BREAK           reduce using rule 32 (expr2 -> expr LT expr .)
+    CONTINUE        reduce using rule 32 (expr2 -> expr LT expr .)
+    IF              reduce using rule 32 (expr2 -> expr LT expr .)
+    WHILE           reduce using rule 32 (expr2 -> expr LT expr .)
+    FUNCTION        reduce using rule 32 (expr2 -> expr LT expr .)
+    LPAREN          reduce using rule 32 (expr2 -> expr LT expr .)
+    ID              reduce using rule 32 (expr2 -> expr LT expr .)
+    NUMBER          reduce using rule 32 (expr2 -> expr LT expr .)
+    STRING          reduce using rule 32 (expr2 -> expr LT expr .)
+    NEG             reduce using rule 32 (expr2 -> expr LT expr .)
+    ELSE            reduce using rule 32 (expr2 -> expr LT expr .)
+    ELSEIF          reduce using rule 32 (expr2 -> expr LT expr .)
+    END             reduce using rule 32 (expr2 -> expr LT expr .)
+    RPAREN          reduce using rule 32 (expr2 -> expr LT expr .)
+    COMMA           reduce using rule 32 (expr2 -> expr LT expr .)
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+
+  ! AND             [ reduce using rule 32 (expr2 -> expr LT expr .) ]
+  ! DIV             [ reduce using rule 32 (expr2 -> expr LT expr .) ]
+  ! POW             [ reduce using rule 32 (expr2 -> expr LT expr .) ]
+  ! MUL             [ reduce using rule 32 (expr2 -> expr LT expr .) ]
+  ! OR              [ reduce using rule 32 (expr2 -> expr LT expr .) ]
+  ! PLUS            [ reduce using rule 32 (expr2 -> expr LT expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 44
+
+    (33) expr2 -> expr AND expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 33 (expr2 -> expr AND expr .)
+    LT              reduce using rule 33 (expr2 -> expr AND expr .)
+    AND             reduce using rule 33 (expr2 -> expr AND expr .)
+    GE              reduce using rule 33 (expr2 -> expr AND expr .)
+    GT              reduce using rule 33 (expr2 -> expr AND expr .)
+    LE              reduce using rule 33 (expr2 -> expr AND expr .)
+    MINUS           reduce using rule 33 (expr2 -> expr AND expr .)
+    OR              reduce using rule 33 (expr2 -> expr AND expr .)
+    EQ              reduce using rule 33 (expr2 -> expr AND expr .)
+    EQEQ            reduce using rule 33 (expr2 -> expr AND expr .)
+    BREAK           reduce using rule 33 (expr2 -> expr AND expr .)
+    CONTINUE        reduce using rule 33 (expr2 -> expr AND expr .)
+    IF              reduce using rule 33 (expr2 -> expr AND expr .)
+    WHILE           reduce using rule 33 (expr2 -> expr AND expr .)
+    FUNCTION        reduce using rule 33 (expr2 -> expr AND expr .)
+    LPAREN          reduce using rule 33 (expr2 -> expr AND expr .)
+    ID              reduce using rule 33 (expr2 -> expr AND expr .)
+    NUMBER          reduce using rule 33 (expr2 -> expr AND expr .)
+    STRING          reduce using rule 33 (expr2 -> expr AND expr .)
+    NEG             reduce using rule 33 (expr2 -> expr AND expr .)
+    ELSE            reduce using rule 33 (expr2 -> expr AND expr .)
+    ELSEIF          reduce using rule 33 (expr2 -> expr AND expr .)
+    END             reduce using rule 33 (expr2 -> expr AND expr .)
+    RPAREN          reduce using rule 33 (expr2 -> expr AND expr .)
+    COMMA           reduce using rule 33 (expr2 -> expr AND expr .)
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+    PLUS            shift and go to state 34
+
+  ! DIV             [ reduce using rule 33 (expr2 -> expr AND expr .) ]
+  ! POW             [ reduce using rule 33 (expr2 -> expr AND expr .) ]
+  ! MUL             [ reduce using rule 33 (expr2 -> expr AND expr .) ]
+  ! PLUS            [ reduce using rule 33 (expr2 -> expr AND expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! AND             [ shift and go to state 25 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! OR              [ shift and go to state 33 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 45
+
+    (34) expr2 -> expr DIV expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 34 (expr2 -> expr DIV expr .)
+    LT              reduce using rule 34 (expr2 -> expr DIV expr .)
+    AND             reduce using rule 34 (expr2 -> expr DIV expr .)
+    DIV             reduce using rule 34 (expr2 -> expr DIV expr .)
+    GE              reduce using rule 34 (expr2 -> expr DIV expr .)
+    GT              reduce using rule 34 (expr2 -> expr DIV expr .)
+    LE              reduce using rule 34 (expr2 -> expr DIV expr .)
+    MINUS           reduce using rule 34 (expr2 -> expr DIV expr .)
+    MUL             reduce using rule 34 (expr2 -> expr DIV expr .)
+    OR              reduce using rule 34 (expr2 -> expr DIV expr .)
+    PLUS            reduce using rule 34 (expr2 -> expr DIV expr .)
+    EQ              reduce using rule 34 (expr2 -> expr DIV expr .)
+    EQEQ            reduce using rule 34 (expr2 -> expr DIV expr .)
+    BREAK           reduce using rule 34 (expr2 -> expr DIV expr .)
+    CONTINUE        reduce using rule 34 (expr2 -> expr DIV expr .)
+    IF              reduce using rule 34 (expr2 -> expr DIV expr .)
+    WHILE           reduce using rule 34 (expr2 -> expr DIV expr .)
+    FUNCTION        reduce using rule 34 (expr2 -> expr DIV expr .)
+    LPAREN          reduce using rule 34 (expr2 -> expr DIV expr .)
+    ID              reduce using rule 34 (expr2 -> expr DIV expr .)
+    NUMBER          reduce using rule 34 (expr2 -> expr DIV expr .)
+    STRING          reduce using rule 34 (expr2 -> expr DIV expr .)
+    NEG             reduce using rule 34 (expr2 -> expr DIV expr .)
+    ELSE            reduce using rule 34 (expr2 -> expr DIV expr .)
+    ELSEIF          reduce using rule 34 (expr2 -> expr DIV expr .)
+    END             reduce using rule 34 (expr2 -> expr DIV expr .)
+    RPAREN          reduce using rule 34 (expr2 -> expr DIV expr .)
+    COMMA           reduce using rule 34 (expr2 -> expr DIV expr .)
+    POW             shift and go to state 27
+
+  ! POW             [ reduce using rule 34 (expr2 -> expr DIV expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! AND             [ shift and go to state 25 ]
+  ! DIV             [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! MUL             [ shift and go to state 32 ]
+  ! OR              [ shift and go to state 33 ]
+  ! PLUS            [ shift and go to state 34 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 46
+
+    (35) expr2 -> expr POW expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 35 (expr2 -> expr POW expr .)
+    LT              reduce using rule 35 (expr2 -> expr POW expr .)
+    AND             reduce using rule 35 (expr2 -> expr POW expr .)
+    DIV             reduce using rule 35 (expr2 -> expr POW expr .)
+    GE              reduce using rule 35 (expr2 -> expr POW expr .)
+    GT              reduce using rule 35 (expr2 -> expr POW expr .)
+    LE              reduce using rule 35 (expr2 -> expr POW expr .)
+    MINUS           reduce using rule 35 (expr2 -> expr POW expr .)
+    MUL             reduce using rule 35 (expr2 -> expr POW expr .)
+    OR              reduce using rule 35 (expr2 -> expr POW expr .)
+    PLUS            reduce using rule 35 (expr2 -> expr POW expr .)
+    EQ              reduce using rule 35 (expr2 -> expr POW expr .)
+    EQEQ            reduce using rule 35 (expr2 -> expr POW expr .)
+    BREAK           reduce using rule 35 (expr2 -> expr POW expr .)
+    CONTINUE        reduce using rule 35 (expr2 -> expr POW expr .)
+    IF              reduce using rule 35 (expr2 -> expr POW expr .)
+    WHILE           reduce using rule 35 (expr2 -> expr POW expr .)
+    FUNCTION        reduce using rule 35 (expr2 -> expr POW expr .)
+    LPAREN          reduce using rule 35 (expr2 -> expr POW expr .)
+    ID              reduce using rule 35 (expr2 -> expr POW expr .)
+    NUMBER          reduce using rule 35 (expr2 -> expr POW expr .)
+    STRING          reduce using rule 35 (expr2 -> expr POW expr .)
+    NEG             reduce using rule 35 (expr2 -> expr POW expr .)
+    ELSE            reduce using rule 35 (expr2 -> expr POW expr .)
+    ELSEIF          reduce using rule 35 (expr2 -> expr POW expr .)
+    END             reduce using rule 35 (expr2 -> expr POW expr .)
+    RPAREN          reduce using rule 35 (expr2 -> expr POW expr .)
+    COMMA           reduce using rule 35 (expr2 -> expr POW expr .)
+    POW             shift and go to state 27
+
+  ! POW             [ reduce using rule 35 (expr2 -> expr POW expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! AND             [ shift and go to state 25 ]
+  ! DIV             [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! MUL             [ shift and go to state 32 ]
+  ! OR              [ shift and go to state 33 ]
+  ! PLUS            [ shift and go to state 34 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 47
+
+    (36) expr2 -> expr GE expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 36 (expr2 -> expr GE expr .)
+    LT              reduce using rule 36 (expr2 -> expr GE expr .)
+    GE              reduce using rule 36 (expr2 -> expr GE expr .)
+    GT              reduce using rule 36 (expr2 -> expr GE expr .)
+    LE              reduce using rule 36 (expr2 -> expr GE expr .)
+    MINUS           reduce using rule 36 (expr2 -> expr GE expr .)
+    EQ              reduce using rule 36 (expr2 -> expr GE expr .)
+    EQEQ            reduce using rule 36 (expr2 -> expr GE expr .)
+    BREAK           reduce using rule 36 (expr2 -> expr GE expr .)
+    CONTINUE        reduce using rule 36 (expr2 -> expr GE expr .)
+    IF              reduce using rule 36 (expr2 -> expr GE expr .)
+    WHILE           reduce using rule 36 (expr2 -> expr GE expr .)
+    FUNCTION        reduce using rule 36 (expr2 -> expr GE expr .)
+    LPAREN          reduce using rule 36 (expr2 -> expr GE expr .)
+    ID              reduce using rule 36 (expr2 -> expr GE expr .)
+    NUMBER          reduce using rule 36 (expr2 -> expr GE expr .)
+    STRING          reduce using rule 36 (expr2 -> expr GE expr .)
+    NEG             reduce using rule 36 (expr2 -> expr GE expr .)
+    ELSE            reduce using rule 36 (expr2 -> expr GE expr .)
+    ELSEIF          reduce using rule 36 (expr2 -> expr GE expr .)
+    END             reduce using rule 36 (expr2 -> expr GE expr .)
+    RPAREN          reduce using rule 36 (expr2 -> expr GE expr .)
+    COMMA           reduce using rule 36 (expr2 -> expr GE expr .)
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+
+  ! AND             [ reduce using rule 36 (expr2 -> expr GE expr .) ]
+  ! DIV             [ reduce using rule 36 (expr2 -> expr GE expr .) ]
+  ! POW             [ reduce using rule 36 (expr2 -> expr GE expr .) ]
+  ! MUL             [ reduce using rule 36 (expr2 -> expr GE expr .) ]
+  ! OR              [ reduce using rule 36 (expr2 -> expr GE expr .) ]
+  ! PLUS            [ reduce using rule 36 (expr2 -> expr GE expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 48
+
+    (37) expr2 -> expr GT expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 37 (expr2 -> expr GT expr .)
+    LT              reduce using rule 37 (expr2 -> expr GT expr .)
+    GE              reduce using rule 37 (expr2 -> expr GT expr .)
+    GT              reduce using rule 37 (expr2 -> expr GT expr .)
+    LE              reduce using rule 37 (expr2 -> expr GT expr .)
+    MINUS           reduce using rule 37 (expr2 -> expr GT expr .)
+    EQ              reduce using rule 37 (expr2 -> expr GT expr .)
+    EQEQ            reduce using rule 37 (expr2 -> expr GT expr .)
+    BREAK           reduce using rule 37 (expr2 -> expr GT expr .)
+    CONTINUE        reduce using rule 37 (expr2 -> expr GT expr .)
+    IF              reduce using rule 37 (expr2 -> expr GT expr .)
+    WHILE           reduce using rule 37 (expr2 -> expr GT expr .)
+    FUNCTION        reduce using rule 37 (expr2 -> expr GT expr .)
+    LPAREN          reduce using rule 37 (expr2 -> expr GT expr .)
+    ID              reduce using rule 37 (expr2 -> expr GT expr .)
+    NUMBER          reduce using rule 37 (expr2 -> expr GT expr .)
+    STRING          reduce using rule 37 (expr2 -> expr GT expr .)
+    NEG             reduce using rule 37 (expr2 -> expr GT expr .)
+    ELSE            reduce using rule 37 (expr2 -> expr GT expr .)
+    ELSEIF          reduce using rule 37 (expr2 -> expr GT expr .)
+    END             reduce using rule 37 (expr2 -> expr GT expr .)
+    RPAREN          reduce using rule 37 (expr2 -> expr GT expr .)
+    COMMA           reduce using rule 37 (expr2 -> expr GT expr .)
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+
+  ! AND             [ reduce using rule 37 (expr2 -> expr GT expr .) ]
+  ! DIV             [ reduce using rule 37 (expr2 -> expr GT expr .) ]
+  ! POW             [ reduce using rule 37 (expr2 -> expr GT expr .) ]
+  ! MUL             [ reduce using rule 37 (expr2 -> expr GT expr .) ]
+  ! OR              [ reduce using rule 37 (expr2 -> expr GT expr .) ]
+  ! PLUS            [ reduce using rule 37 (expr2 -> expr GT expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 49
+
+    (38) expr2 -> expr LE expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 38 (expr2 -> expr LE expr .)
+    LT              reduce using rule 38 (expr2 -> expr LE expr .)
+    GE              reduce using rule 38 (expr2 -> expr LE expr .)
+    GT              reduce using rule 38 (expr2 -> expr LE expr .)
+    LE              reduce using rule 38 (expr2 -> expr LE expr .)
+    MINUS           reduce using rule 38 (expr2 -> expr LE expr .)
+    EQ              reduce using rule 38 (expr2 -> expr LE expr .)
+    EQEQ            reduce using rule 38 (expr2 -> expr LE expr .)
+    BREAK           reduce using rule 38 (expr2 -> expr LE expr .)
+    CONTINUE        reduce using rule 38 (expr2 -> expr LE expr .)
+    IF              reduce using rule 38 (expr2 -> expr LE expr .)
+    WHILE           reduce using rule 38 (expr2 -> expr LE expr .)
+    FUNCTION        reduce using rule 38 (expr2 -> expr LE expr .)
+    LPAREN          reduce using rule 38 (expr2 -> expr LE expr .)
+    ID              reduce using rule 38 (expr2 -> expr LE expr .)
+    NUMBER          reduce using rule 38 (expr2 -> expr LE expr .)
+    STRING          reduce using rule 38 (expr2 -> expr LE expr .)
+    NEG             reduce using rule 38 (expr2 -> expr LE expr .)
+    ELSE            reduce using rule 38 (expr2 -> expr LE expr .)
+    ELSEIF          reduce using rule 38 (expr2 -> expr LE expr .)
+    END             reduce using rule 38 (expr2 -> expr LE expr .)
+    RPAREN          reduce using rule 38 (expr2 -> expr LE expr .)
+    COMMA           reduce using rule 38 (expr2 -> expr LE expr .)
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+
+  ! AND             [ reduce using rule 38 (expr2 -> expr LE expr .) ]
+  ! DIV             [ reduce using rule 38 (expr2 -> expr LE expr .) ]
+  ! POW             [ reduce using rule 38 (expr2 -> expr LE expr .) ]
+  ! MUL             [ reduce using rule 38 (expr2 -> expr LE expr .) ]
+  ! OR              [ reduce using rule 38 (expr2 -> expr LE expr .) ]
+  ! PLUS            [ reduce using rule 38 (expr2 -> expr LE expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 50
+
+    (39) expr2 -> expr MINUS expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+  ! shift/reduce conflict for LT resolved as shift
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for DIV resolved as shift
+  ! shift/reduce conflict for POW resolved as shift
+  ! shift/reduce conflict for GE resolved as shift
+  ! shift/reduce conflict for GT resolved as shift
+  ! shift/reduce conflict for LE resolved as shift
+  ! shift/reduce conflict for MINUS resolved as shift
+  ! shift/reduce conflict for MUL resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+  ! shift/reduce conflict for PLUS resolved as shift
+  ! shift/reduce conflict for EQ resolved as shift
+  ! shift/reduce conflict for EQEQ resolved as shift
+    SEMI            reduce using rule 39 (expr2 -> expr MINUS expr .)
+    BREAK           reduce using rule 39 (expr2 -> expr MINUS expr .)
+    CONTINUE        reduce using rule 39 (expr2 -> expr MINUS expr .)
+    IF              reduce using rule 39 (expr2 -> expr MINUS expr .)
+    WHILE           reduce using rule 39 (expr2 -> expr MINUS expr .)
+    FUNCTION        reduce using rule 39 (expr2 -> expr MINUS expr .)
+    LPAREN          reduce using rule 39 (expr2 -> expr MINUS expr .)
+    ID              reduce using rule 39 (expr2 -> expr MINUS expr .)
+    NUMBER          reduce using rule 39 (expr2 -> expr MINUS expr .)
+    STRING          reduce using rule 39 (expr2 -> expr MINUS expr .)
+    NEG             reduce using rule 39 (expr2 -> expr MINUS expr .)
+    ELSE            reduce using rule 39 (expr2 -> expr MINUS expr .)
+    ELSEIF          reduce using rule 39 (expr2 -> expr MINUS expr .)
+    END             reduce using rule 39 (expr2 -> expr MINUS expr .)
+    RPAREN          reduce using rule 39 (expr2 -> expr MINUS expr .)
+    COMMA           reduce using rule 39 (expr2 -> expr MINUS expr .)
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+
+  ! LT              [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! AND             [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! DIV             [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! POW             [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! GE              [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! GT              [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! LE              [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! MINUS           [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! MUL             [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! OR              [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! PLUS            [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! EQ              [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+  ! EQEQ            [ reduce using rule 39 (expr2 -> expr MINUS expr .) ]
+
+
+state 51
+
+    (40) expr2 -> expr MUL expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 40 (expr2 -> expr MUL expr .)
+    LT              reduce using rule 40 (expr2 -> expr MUL expr .)
+    AND             reduce using rule 40 (expr2 -> expr MUL expr .)
+    DIV             reduce using rule 40 (expr2 -> expr MUL expr .)
+    GE              reduce using rule 40 (expr2 -> expr MUL expr .)
+    GT              reduce using rule 40 (expr2 -> expr MUL expr .)
+    LE              reduce using rule 40 (expr2 -> expr MUL expr .)
+    MINUS           reduce using rule 40 (expr2 -> expr MUL expr .)
+    MUL             reduce using rule 40 (expr2 -> expr MUL expr .)
+    OR              reduce using rule 40 (expr2 -> expr MUL expr .)
+    PLUS            reduce using rule 40 (expr2 -> expr MUL expr .)
+    EQ              reduce using rule 40 (expr2 -> expr MUL expr .)
+    EQEQ            reduce using rule 40 (expr2 -> expr MUL expr .)
+    BREAK           reduce using rule 40 (expr2 -> expr MUL expr .)
+    CONTINUE        reduce using rule 40 (expr2 -> expr MUL expr .)
+    IF              reduce using rule 40 (expr2 -> expr MUL expr .)
+    WHILE           reduce using rule 40 (expr2 -> expr MUL expr .)
+    FUNCTION        reduce using rule 40 (expr2 -> expr MUL expr .)
+    LPAREN          reduce using rule 40 (expr2 -> expr MUL expr .)
+    ID              reduce using rule 40 (expr2 -> expr MUL expr .)
+    NUMBER          reduce using rule 40 (expr2 -> expr MUL expr .)
+    STRING          reduce using rule 40 (expr2 -> expr MUL expr .)
+    NEG             reduce using rule 40 (expr2 -> expr MUL expr .)
+    ELSE            reduce using rule 40 (expr2 -> expr MUL expr .)
+    ELSEIF          reduce using rule 40 (expr2 -> expr MUL expr .)
+    END             reduce using rule 40 (expr2 -> expr MUL expr .)
+    RPAREN          reduce using rule 40 (expr2 -> expr MUL expr .)
+    COMMA           reduce using rule 40 (expr2 -> expr MUL expr .)
+    POW             shift and go to state 27
+
+  ! POW             [ reduce using rule 40 (expr2 -> expr MUL expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! AND             [ shift and go to state 25 ]
+  ! DIV             [ shift and go to state 26 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! MUL             [ shift and go to state 32 ]
+  ! OR              [ shift and go to state 33 ]
+  ! PLUS            [ shift and go to state 34 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 52
+
+    (41) expr2 -> expr OR expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 41 (expr2 -> expr OR expr .)
+    LT              reduce using rule 41 (expr2 -> expr OR expr .)
+    AND             reduce using rule 41 (expr2 -> expr OR expr .)
+    GE              reduce using rule 41 (expr2 -> expr OR expr .)
+    GT              reduce using rule 41 (expr2 -> expr OR expr .)
+    LE              reduce using rule 41 (expr2 -> expr OR expr .)
+    MINUS           reduce using rule 41 (expr2 -> expr OR expr .)
+    OR              reduce using rule 41 (expr2 -> expr OR expr .)
+    EQ              reduce using rule 41 (expr2 -> expr OR expr .)
+    EQEQ            reduce using rule 41 (expr2 -> expr OR expr .)
+    BREAK           reduce using rule 41 (expr2 -> expr OR expr .)
+    CONTINUE        reduce using rule 41 (expr2 -> expr OR expr .)
+    IF              reduce using rule 41 (expr2 -> expr OR expr .)
+    WHILE           reduce using rule 41 (expr2 -> expr OR expr .)
+    FUNCTION        reduce using rule 41 (expr2 -> expr OR expr .)
+    LPAREN          reduce using rule 41 (expr2 -> expr OR expr .)
+    ID              reduce using rule 41 (expr2 -> expr OR expr .)
+    NUMBER          reduce using rule 41 (expr2 -> expr OR expr .)
+    STRING          reduce using rule 41 (expr2 -> expr OR expr .)
+    NEG             reduce using rule 41 (expr2 -> expr OR expr .)
+    ELSE            reduce using rule 41 (expr2 -> expr OR expr .)
+    ELSEIF          reduce using rule 41 (expr2 -> expr OR expr .)
+    END             reduce using rule 41 (expr2 -> expr OR expr .)
+    RPAREN          reduce using rule 41 (expr2 -> expr OR expr .)
+    COMMA           reduce using rule 41 (expr2 -> expr OR expr .)
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+    PLUS            shift and go to state 34
+
+  ! DIV             [ reduce using rule 41 (expr2 -> expr OR expr .) ]
+  ! POW             [ reduce using rule 41 (expr2 -> expr OR expr .) ]
+  ! MUL             [ reduce using rule 41 (expr2 -> expr OR expr .) ]
+  ! PLUS            [ reduce using rule 41 (expr2 -> expr OR expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! AND             [ shift and go to state 25 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! OR              [ shift and go to state 33 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 53
+
+    (42) expr2 -> expr PLUS expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 42 (expr2 -> expr PLUS expr .)
+    LT              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    AND             reduce using rule 42 (expr2 -> expr PLUS expr .)
+    GE              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    GT              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    LE              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    MINUS           reduce using rule 42 (expr2 -> expr PLUS expr .)
+    OR              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    PLUS            reduce using rule 42 (expr2 -> expr PLUS expr .)
+    EQ              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    EQEQ            reduce using rule 42 (expr2 -> expr PLUS expr .)
+    BREAK           reduce using rule 42 (expr2 -> expr PLUS expr .)
+    CONTINUE        reduce using rule 42 (expr2 -> expr PLUS expr .)
+    IF              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    WHILE           reduce using rule 42 (expr2 -> expr PLUS expr .)
+    FUNCTION        reduce using rule 42 (expr2 -> expr PLUS expr .)
+    LPAREN          reduce using rule 42 (expr2 -> expr PLUS expr .)
+    ID              reduce using rule 42 (expr2 -> expr PLUS expr .)
+    NUMBER          reduce using rule 42 (expr2 -> expr PLUS expr .)
+    STRING          reduce using rule 42 (expr2 -> expr PLUS expr .)
+    NEG             reduce using rule 42 (expr2 -> expr PLUS expr .)
+    ELSE            reduce using rule 42 (expr2 -> expr PLUS expr .)
+    ELSEIF          reduce using rule 42 (expr2 -> expr PLUS expr .)
+    END             reduce using rule 42 (expr2 -> expr PLUS expr .)
+    RPAREN          reduce using rule 42 (expr2 -> expr PLUS expr .)
+    COMMA           reduce using rule 42 (expr2 -> expr PLUS expr .)
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+
+  ! DIV             [ reduce using rule 42 (expr2 -> expr PLUS expr .) ]
+  ! POW             [ reduce using rule 42 (expr2 -> expr PLUS expr .) ]
+  ! MUL             [ reduce using rule 42 (expr2 -> expr PLUS expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! AND             [ shift and go to state 25 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! OR              [ shift and go to state 33 ]
+  ! PLUS            [ shift and go to state 34 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 54
+
+    (43) expr2 -> expr EQ expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 43 (expr2 -> expr EQ expr .)
+    MINUS           reduce using rule 43 (expr2 -> expr EQ expr .)
+    BREAK           reduce using rule 43 (expr2 -> expr EQ expr .)
+    CONTINUE        reduce using rule 43 (expr2 -> expr EQ expr .)
+    IF              reduce using rule 43 (expr2 -> expr EQ expr .)
+    WHILE           reduce using rule 43 (expr2 -> expr EQ expr .)
+    FUNCTION        reduce using rule 43 (expr2 -> expr EQ expr .)
+    LPAREN          reduce using rule 43 (expr2 -> expr EQ expr .)
+    ID              reduce using rule 43 (expr2 -> expr EQ expr .)
+    NUMBER          reduce using rule 43 (expr2 -> expr EQ expr .)
+    STRING          reduce using rule 43 (expr2 -> expr EQ expr .)
+    NEG             reduce using rule 43 (expr2 -> expr EQ expr .)
+    ELSE            reduce using rule 43 (expr2 -> expr EQ expr .)
+    ELSEIF          reduce using rule 43 (expr2 -> expr EQ expr .)
+    END             reduce using rule 43 (expr2 -> expr EQ expr .)
+    RPAREN          reduce using rule 43 (expr2 -> expr EQ expr .)
+    COMMA           reduce using rule 43 (expr2 -> expr EQ expr .)
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+
+  ! LT              [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! AND             [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! DIV             [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! POW             [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! GE              [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! GT              [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! LE              [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! MUL             [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! OR              [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! PLUS            [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! EQ              [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! EQEQ            [ reduce using rule 43 (expr2 -> expr EQ expr .) ]
+  ! MINUS           [ shift and go to state 31 ]
+
+
+state 55
+
+    (44) expr2 -> expr EQEQ expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    SEMI            reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    LT              reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    GE              reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    GT              reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    LE              reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    MINUS           reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    EQ              reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    EQEQ            reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    BREAK           reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    CONTINUE        reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    IF              reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    WHILE           reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    FUNCTION        reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    LPAREN          reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    ID              reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    NUMBER          reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    STRING          reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    NEG             reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    ELSE            reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    ELSEIF          reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    END             reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    RPAREN          reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    COMMA           reduce using rule 44 (expr2 -> expr EQEQ expr .)
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+
+  ! AND             [ reduce using rule 44 (expr2 -> expr EQEQ expr .) ]
+  ! DIV             [ reduce using rule 44 (expr2 -> expr EQEQ expr .) ]
+  ! POW             [ reduce using rule 44 (expr2 -> expr EQEQ expr .) ]
+  ! MUL             [ reduce using rule 44 (expr2 -> expr EQEQ expr .) ]
+  ! OR              [ reduce using rule 44 (expr2 -> expr EQEQ expr .) ]
+  ! PLUS            [ reduce using rule 44 (expr2 -> expr EQEQ expr .) ]
+  ! LT              [ shift and go to state 24 ]
+  ! GE              [ shift and go to state 28 ]
+  ! GT              [ shift and go to state 29 ]
+  ! LE              [ shift and go to state 30 ]
+  ! MINUS           [ shift and go to state 31 ]
+  ! EQ              [ shift and go to state 35 ]
+  ! EQEQ            [ shift and go to state 36 ]
+
+
+state 56
+
+    (45) if_stmt -> IF expr stmt_list_opt . elseif_stmt END
+    (46) elseif_stmt -> .
+    (47) elseif_stmt -> . ELSE stmt_list_opt
+    (48) elseif_stmt -> . ELSEIF expr stmt_list_opt elseif_stmt
+
+    END             reduce using rule 46 (elseif_stmt -> .)
+    ELSE            shift and go to state 64
+    ELSEIF          shift and go to state 65
+
+    elseif_stmt                    shift and go to state 63
+
+state 57
+
+    (1) while_stmt -> WHILE expr stmt_list . END
+    (3) stmt_list -> stmt_list . stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    END             shift and go to state 66
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 10
+    stmt                           shift and go to state 22
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 58
+
+    (11) function_stmt -> FUNCTION ID EQ . function_declr stmt_list END
+    (12) function_declr -> . ID LPAREN args_opt RPAREN
+
+    ID              shift and go to state 67
+
+    function_declr                 shift and go to state 68
+
+state 59
+
+    (26) function_call -> ID LPAREN expr_list_opt . RPAREN
+
+    RPAREN          shift and go to state 69
+
+
+state 60
+
+    (28) expr_list_opt -> expr_list .
+    (30) expr_list -> expr_list . COMMA expr
+
+    RPAREN          reduce using rule 28 (expr_list_opt -> expr_list .)
+    COMMA           shift and go to state 70
+
+
+state 61
+
+    (29) expr_list -> expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    COMMA           reduce using rule 29 (expr_list -> expr .)
+    RPAREN          reduce using rule 29 (expr_list -> expr .)
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+
+
+state 62
+
+    (19) expr -> LPAREN expr RPAREN .
+
+    SEMI            reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    LT              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    AND             reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    DIV             reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    POW             reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    GE              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    GT              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    LE              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    MINUS           reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    MUL             reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    OR              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    PLUS            reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    EQ              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    EQEQ            reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    BREAK           reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    CONTINUE        reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    IF              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    WHILE           reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    FUNCTION        reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    LPAREN          reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    ID              reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    NUMBER          reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    STRING          reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    NEG             reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    ELSE            reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    ELSEIF          reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    END             reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    RPAREN          reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+    COMMA           reduce using rule 19 (expr -> LPAREN expr RPAREN .)
+
+
+state 63
+
+    (45) if_stmt -> IF expr stmt_list_opt elseif_stmt . END
+
+    END             shift and go to state 71
+
+
+state 64
+
+    (47) elseif_stmt -> ELSE . stmt_list_opt
+    (17) stmt_list_opt -> .
+    (18) stmt_list_opt -> . stmt_list
+    (2) stmt_list -> . stmt
+    (3) stmt_list -> . stmt_list stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    END             reduce using rule 17 (stmt_list_opt -> .)
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    stmt_list_opt                  shift and go to state 72
+    stmt_list                      shift and go to state 2
+    stmt                           shift and go to state 3
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    expr                           shift and go to state 10
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 65
+
+    (48) elseif_stmt -> ELSEIF . expr stmt_list_opt elseif_stmt
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 73
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 66
+
+    (1) while_stmt -> WHILE expr stmt_list END .
+
+    BREAK           reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    CONTINUE        reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    IF              reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    WHILE           reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    FUNCTION        reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    LPAREN          reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    ID              reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    NUMBER          reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    STRING          reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    NEG             reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    $end            reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    ELSE            reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    ELSEIF          reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+    END             reduce using rule 1 (while_stmt -> WHILE expr stmt_list END .)
+
+
+state 67
+
+    (12) function_declr -> ID . LPAREN args_opt RPAREN
+
+    LPAREN          shift and go to state 74
+
+
+state 68
+
+    (11) function_stmt -> FUNCTION ID EQ function_declr . stmt_list END
+    (2) stmt_list -> . stmt
+    (3) stmt_list -> . stmt_list stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    stmt_list                      shift and go to state 75
+    stmt                           shift and go to state 3
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    expr                           shift and go to state 10
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 69
+
+    (26) function_call -> ID LPAREN expr_list_opt RPAREN .
+
+    SEMI            reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    LT              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    AND             reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    DIV             reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    POW             reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    GE              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    GT              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    LE              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    MINUS           reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    MUL             reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    OR              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    PLUS            reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    EQ              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    EQEQ            reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    BREAK           reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    CONTINUE        reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    IF              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    WHILE           reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    FUNCTION        reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    LPAREN          reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    ID              reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    NUMBER          reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    STRING          reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    NEG             reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    ELSE            reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    ELSEIF          reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    END             reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    RPAREN          reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+    COMMA           reduce using rule 26 (function_call -> ID LPAREN expr_list_opt RPAREN .)
+
+
+state 70
+
+    (30) expr_list -> expr_list COMMA . expr
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 76
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 71
+
+    (45) if_stmt -> IF expr stmt_list_opt elseif_stmt END .
+
+    BREAK           reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    CONTINUE        reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    IF              reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    WHILE           reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    FUNCTION        reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    LPAREN          reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    ID              reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    NUMBER          reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    STRING          reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    NEG             reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    $end            reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    ELSE            reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    ELSEIF          reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+    END             reduce using rule 45 (if_stmt -> IF expr stmt_list_opt elseif_stmt END .)
+
+
+state 72
+
+    (47) elseif_stmt -> ELSE stmt_list_opt .
+
+    END             reduce using rule 47 (elseif_stmt -> ELSE stmt_list_opt .)
+
+
+state 73
+
+    (48) elseif_stmt -> ELSEIF expr . stmt_list_opt elseif_stmt
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+    (17) stmt_list_opt -> .
+    (18) stmt_list_opt -> . stmt_list
+    (2) stmt_list -> . stmt
+    (3) stmt_list -> . stmt_list stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+    ELSE            reduce using rule 17 (stmt_list_opt -> .)
+    ELSEIF          reduce using rule 17 (stmt_list_opt -> .)
+    END             reduce using rule 17 (stmt_list_opt -> .)
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    expr                           shift and go to state 10
+    stmt_list_opt                  shift and go to state 77
+    stmt_list                      shift and go to state 2
+    stmt                           shift and go to state 3
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 74
+
+    (12) function_declr -> ID LPAREN . args_opt RPAREN
+    (13) args_opt -> .
+    (14) args_opt -> . args
+    (15) args -> . ID
+    (16) args -> . args COMMA ID
+
+    RPAREN          reduce using rule 13 (args_opt -> .)
+    ID              shift and go to state 78
+
+    args_opt                       shift and go to state 79
+    args                           shift and go to state 80
+
+state 75
+
+    (11) function_stmt -> FUNCTION ID EQ function_declr stmt_list . END
+    (3) stmt_list -> stmt_list . stmt
+    (4) stmt -> . expr_stmt
+    (5) stmt -> . if_stmt
+    (6) stmt -> . while_stmt
+    (7) stmt -> . BREAK
+    (8) stmt -> . CONTINUE
+    (9) stmt -> . function_stmt
+    (10) expr_stmt -> . expr SEMI
+    (45) if_stmt -> . IF expr stmt_list_opt elseif_stmt END
+    (1) while_stmt -> . WHILE expr stmt_list END
+    (11) function_stmt -> . FUNCTION ID EQ function_declr stmt_list END
+    (19) expr -> . LPAREN expr RPAREN
+    (20) expr -> . function_call
+    (21) expr -> . ID
+    (22) expr -> . NUMBER
+    (23) expr -> . STRING
+    (24) expr -> . expr1
+    (25) expr -> . expr2
+    (26) function_call -> . ID LPAREN expr_list_opt RPAREN
+    (31) expr1 -> . NEG expr
+    (32) expr2 -> . expr LT expr
+    (33) expr2 -> . expr AND expr
+    (34) expr2 -> . expr DIV expr
+    (35) expr2 -> . expr POW expr
+    (36) expr2 -> . expr GE expr
+    (37) expr2 -> . expr GT expr
+    (38) expr2 -> . expr LE expr
+    (39) expr2 -> . expr MINUS expr
+    (40) expr2 -> . expr MUL expr
+    (41) expr2 -> . expr OR expr
+    (42) expr2 -> . expr PLUS expr
+    (43) expr2 -> . expr EQ expr
+    (44) expr2 -> . expr EQEQ expr
+
+    END             shift and go to state 81
+    BREAK           shift and go to state 7
+    CONTINUE        shift and go to state 8
+    IF              shift and go to state 11
+    WHILE           shift and go to state 12
+    FUNCTION        shift and go to state 13
+    LPAREN          shift and go to state 15
+    ID              shift and go to state 14
+    NUMBER          shift and go to state 17
+    STRING          shift and go to state 18
+    NEG             shift and go to state 21
+
+    stmt                           shift and go to state 22
+    expr_stmt                      shift and go to state 4
+    if_stmt                        shift and go to state 5
+    while_stmt                     shift and go to state 6
+    function_stmt                  shift and go to state 9
+    expr                           shift and go to state 10
+    function_call                  shift and go to state 16
+    expr1                          shift and go to state 19
+    expr2                          shift and go to state 20
+
+state 76
+
+    (30) expr_list -> expr_list COMMA expr .
+    (32) expr2 -> expr . LT expr
+    (33) expr2 -> expr . AND expr
+    (34) expr2 -> expr . DIV expr
+    (35) expr2 -> expr . POW expr
+    (36) expr2 -> expr . GE expr
+    (37) expr2 -> expr . GT expr
+    (38) expr2 -> expr . LE expr
+    (39) expr2 -> expr . MINUS expr
+    (40) expr2 -> expr . MUL expr
+    (41) expr2 -> expr . OR expr
+    (42) expr2 -> expr . PLUS expr
+    (43) expr2 -> expr . EQ expr
+    (44) expr2 -> expr . EQEQ expr
+
+    COMMA           reduce using rule 30 (expr_list -> expr_list COMMA expr .)
+    RPAREN          reduce using rule 30 (expr_list -> expr_list COMMA expr .)
+    LT              shift and go to state 24
+    AND             shift and go to state 25
+    DIV             shift and go to state 26
+    POW             shift and go to state 27
+    GE              shift and go to state 28
+    GT              shift and go to state 29
+    LE              shift and go to state 30
+    MINUS           shift and go to state 31
+    MUL             shift and go to state 32
+    OR              shift and go to state 33
+    PLUS            shift and go to state 34
+    EQ              shift and go to state 35
+    EQEQ            shift and go to state 36
+
+
+state 77
+
+    (48) elseif_stmt -> ELSEIF expr stmt_list_opt . elseif_stmt
+    (46) elseif_stmt -> .
+    (47) elseif_stmt -> . ELSE stmt_list_opt
+    (48) elseif_stmt -> . ELSEIF expr stmt_list_opt elseif_stmt
+
+    END             reduce using rule 46 (elseif_stmt -> .)
+    ELSE            shift and go to state 64
+    ELSEIF          shift and go to state 65
+
+    elseif_stmt                    shift and go to state 82
+
+state 78
+
+    (15) args -> ID .
+
+    COMMA           reduce using rule 15 (args -> ID .)
+    RPAREN          reduce using rule 15 (args -> ID .)
+
+
+state 79
+
+    (12) function_declr -> ID LPAREN args_opt . RPAREN
+
+    RPAREN          shift and go to state 83
+
+
+state 80
+
+    (14) args_opt -> args .
+    (16) args -> args . COMMA ID
+
+    RPAREN          reduce using rule 14 (args_opt -> args .)
+    COMMA           shift and go to state 84
+
+
+state 81
+
+    (11) function_stmt -> FUNCTION ID EQ function_declr stmt_list END .
+
+    BREAK           reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    CONTINUE        reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    IF              reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    WHILE           reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    FUNCTION        reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    LPAREN          reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    ID              reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    NUMBER          reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    STRING          reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    NEG             reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    $end            reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    ELSE            reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    ELSEIF          reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+    END             reduce using rule 11 (function_stmt -> FUNCTION ID EQ function_declr stmt_list END .)
+
+
+state 82
+
+    (48) elseif_stmt -> ELSEIF expr stmt_list_opt elseif_stmt .
+
+    END             reduce using rule 48 (elseif_stmt -> ELSEIF expr stmt_list_opt elseif_stmt .)
+
+
+state 83
+
+    (12) function_declr -> ID LPAREN args_opt RPAREN .
+
+    BREAK           reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    CONTINUE        reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    IF              reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    WHILE           reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    FUNCTION        reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    LPAREN          reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    ID              reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    NUMBER          reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    STRING          reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+    NEG             reduce using rule 12 (function_declr -> ID LPAREN args_opt RPAREN .)
+
+
+state 84
+
+    (16) args -> args COMMA . ID
+
+    ID              shift and go to state 85
+
+
+state 85
+
+    (16) args -> args COMMA ID .
+
+    COMMA           reduce using rule 16 (args -> args COMMA ID .)
+    RPAREN          reduce using rule 16 (args -> args COMMA ID .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for LPAREN in state 14 resolved as shift
+WARNING: shift/reduce conflict for LT in state 50 resolved as shift
+WARNING: shift/reduce conflict for AND in state 50 resolved as shift
+WARNING: shift/reduce conflict for DIV in state 50 resolved as shift
+WARNING: shift/reduce conflict for POW in state 50 resolved as shift
+WARNING: shift/reduce conflict for GE in state 50 resolved as shift
+WARNING: shift/reduce conflict for GT in state 50 resolved as shift
+WARNING: shift/reduce conflict for LE in state 50 resolved as shift
+WARNING: shift/reduce conflict for MINUS in state 50 resolved as shift
+WARNING: shift/reduce conflict for MUL in state 50 resolved as shift
+WARNING: shift/reduce conflict for OR in state 50 resolved as shift
+WARNING: shift/reduce conflict for PLUS in state 50 resolved as shift
+WARNING: shift/reduce conflict for EQ in state 50 resolved as shift
+WARNING: shift/reduce conflict for EQEQ in state 50 resolved as shift
