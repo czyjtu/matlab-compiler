@@ -8,6 +8,13 @@ from typing import Any, Union, Optional, ClassVar
 
 TAB = "    "
 
+OP_MAPPING = {
+    "^": "**",
+    "|": "or",
+    "~": "not",
+    "!": "not",
+    "&": "and"
+}
 
 class Node(ABC):
     # @abstractmethod
@@ -120,7 +127,8 @@ class BinOpExprNode(Node, IndentAwareNode):
 
     def convert(self, indent=0):
         print(type(self).__name__, indent)
-        return f"{self.left.convert(indent)} {self.op} {self.right.convert(indent)}"
+        op = OP_MAPPING.get(str(self.op), str(self.op))
+        return f"{self.left.convert(indent)} {op} {self.right.convert(indent)}"
 
 
 @dataclass

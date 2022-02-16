@@ -35,7 +35,7 @@ tokens = [
     "NEWLINE",
     "COMMA",
     "ID",
-    "STRING",
+    "STRING"
 ] + list(reserved.values())
 
 t_ignore = " \t"
@@ -51,7 +51,7 @@ t_LE = r"<="
 t_LT = r"\<"
 t_MINUS = r"\-"
 t_MUL = r"\*"
-t_POW = r"\*\*"
+t_POW = r"\^"
 t_OR = r"\|"
 t_PLUS = r"\+"
 t_COMMA = r","
@@ -86,7 +86,7 @@ def t_NUMBER(t):
     r"(0x[0-9A-Fa-f]+)|((\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?[ij]?)"
     if t.value[-1] == "i":
         t.value = t.value[:-1] + "j"
-    t.value = eval(t.value)
+    t.value = str(t.value)
     return t
 
 

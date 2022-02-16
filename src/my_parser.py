@@ -11,7 +11,7 @@ from nodes import (
     StatementNode,
     UniExprNode,
     WhileNode,
-    ExprStmtNode
+    ExprStmtNode,
 )
 from ply import yacc
 import lexer
@@ -60,12 +60,13 @@ def p_stmt(p):
     """
     p[0] = StatementNode(p[1])
 
+
 def p_expr_stmt(p):
     """
     expr_stmt : expr SEMI
     """
     p[0] = ExprStmtNode(p[1])
-    
+
 
 def p_function_stmt(p):
     """
@@ -73,16 +74,18 @@ def p_function_stmt(p):
     """
     p[0] = FuncStmtNode(p[2], p[4], p[5])
 
+
 def p_function_declr(p):
     """
     function_declr : ID LPAREN args_opt RPAREN
     """
     p[0] = FuncCallNode(p[1], p[3])
 
+
 def p_args_opt(p):
     """
-    args_opt : 
-            | args 
+    args_opt :
+            | args
     """
     if len(p) == 2:
         p[0] = p[1]
@@ -92,13 +95,14 @@ def p_args_opt(p):
 
 def p_args(p):
     """
-    args : ID 
+    args : ID
         | args COMMA ID
     """
     if len(p) == 2:
         p[0] = ArgsNode([p[1]])
     else:
         p[0] = ArgsNode(p[1].args + [p[3]])
+
 
 def p_stmt_list_opt(p):
     """
@@ -129,15 +133,17 @@ def p_expr(p):
     """
     p[0] = ExprNode(p[1])
 
+
 def p_function_call(p):
     """
-    function_call : ID LPAREN expr_list_opt RPAREN 
+    function_call : ID LPAREN expr_list_opt RPAREN
     """
     p[0] = FuncCallNode(p[1], p[3])
 
+
 def p_expr_args_opt(p):
     """
-    expr_list_opt : 
+    expr_list_opt :
                 | expr_list
     """
     if len(p) == 2:
@@ -177,7 +183,7 @@ def p_expr2(p):
     | expr EQ expr
     | expr EQEQ expr
     """
-    p[0] = BinOpExprNode(p[1], p[2], p[3])
+    p[0] = BinOpExprNode(p[1], str(p[2]), p[3])
 
 
 def p_if_stmt(p):
@@ -204,9 +210,7 @@ def p_elseif_stmt(p):
 
 def p_error(p):
     if p:
-        print(
-            "Syntax error at line {0}: {1} , '{2}'!".format(p.lineno, p.type, p.value)
-        )
+        print("Syntax error at line {0}: {1} , '{2}'!".format(p.lineno, p.type, p.value))
     else:
         print("Unexpected end of data")
 
